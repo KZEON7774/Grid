@@ -1,0 +1,484 @@
+/*===Slideshow===*/
+.wrapper {
+    position: relative;
+    height: 80h;
+    width: 80vw;
+    overflow: hidden;
+    border-radius: 7px;
+}
+
+.slideshow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    transform: translateX(-50%);
+}
+
+ .slideshow--hero {
+     z-index: 3;
+     left: 0;
+     top: 50%;
+     height: 85%;
+     transform: translateY(-50%) skewY(-10deg);
+     transform-origin: center;
+     overflow: hidden;
+     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+}
+
+ .slideshow--hero .slides {
+     position: absolute;
+     left: 0;
+     top: -10%;
+     width: 70vw;
+     height: 70vh;
+     animation: 11s slideshow-hero-mobile -3s infinite;
+}
+
+ .slideshow--hero .slide1 {
+     background-image: url(../img/hfw1.jpg);
+     animation: 20s slides-set-1 -0.1s infinite;
+}
+
+ .slideshow--hero .slide2 {
+     background-image: url(../img/acv1.jpg);
+     animation: 20s slides-set-2 -0.1s infinite;
+}
+
+ .slideshow--hero .slide3 {
+     background-image: url(../img/wdl3.jpg);
+     animation: 20s slides-set-3 -0.1s infinite;
+}
+
+ @media (min-width: 600px) {
+     .slideshow--hero {
+         left: 50%;
+         top: 0;
+         width: 67%;
+         height: 100%;
+         transform: translateX(-50%) skewX(-10deg);
+    }
+     .slideshow--hero .slides {
+         top: 0;
+         left: -25%;
+         height: 100%;
+         animation: 11s slideshow-hero -3s infinite;
+    }
+}
+
+ .slideshow--contrast {
+     z-index: 1;
+     width: 100%;
+     height: 50%;
+     transform: none;
+}
+
+ .slideshow--contrast--before {
+     left: 0;
+}
+
+ .slideshow--contrast--before .slides {
+     width: 100vw;
+}
+
+ .slideshow--contrast--after {
+     z-index: 2;
+     left: auto;
+     right: 0;
+}
+
+ .slideshow--contrast--after .slides {
+     width: 100vw;
+     left: auto;
+     right: 0;
+}
+
+ .slideshow--contrast .slides {
+     animation: 14s slideshow-contrast -5s infinite;
+}
+
+ .slideshow--contrast .slide1 {
+     background-image: linear-gradient(to bottom, #80808040 0, #41414180 100%), url(../img/hfw.jpg);
+     animation: 20s slides-set-1 -0.2s infinite;
+}
+
+ .slideshow--contrast .slide2 {
+     background-image: linear-gradient(to bottom, #80808040 0, #41414180 100%), url(../img/acv1.jpg);
+     animation: 20s slides-set-2 -0.2s infinite;
+}
+
+ .slideshow--contrast .slide3 {
+     background-image: linear-gradient(to bottom, #80808040 0, #41414180 100%), url(../img/wdl.png);
+     animation: 20s slides-set-3 -0.2s infinite;
+}
+
+ .slideshow--contrast--after {
+     top: auto;
+     bottom: 0;
+}
+
+ .slideshow--contrast--after .slides {
+     animation: 13s slideshow-contrast -13s infinite;
+}
+
+ .slideshow--contrast--after .slide {
+     background-position: right;
+}
+
+ .slideshow--contrast--after .slide1 {
+     animation: 20s slides-set-1 infinite;
+}
+
+ .slideshow--contrast--after .slide2 {
+     animation: 20s slides-set-2 infinite;
+}
+
+ .slideshow--contrast--after .slide3 {
+     animation: 20s slides-set-3 infinite;
+}
+
+ @media (min-width: 600px) {
+     .slideshow--contrast {
+         width: 50%;
+         height: 100%;
+    }
+     .slideshow--contrast--after {
+         top: 0;
+         bottom: auto;
+    }
+     .slideshow--contrast--after .slides {
+         width: 50vw;
+    }
+}
+
+ .slides, .slide {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-position: center;
+     background-size: cover;
+     background-repeat: no-repeat;
+}
+
+ @keyframes slideshow-hero-mobile {
+     0% {
+         transform: scale(1) skewY(10deg);
+    }
+     50% {
+         transform: scale(1.05) skewY(10deg);
+    }
+     100% {
+         transform: scale(1) skewY(10deg);
+    }
+}
+
+ @keyframes slideshow-hero {
+     0% {
+         transform: scale(1) skewX(10deg);
+    }
+     50% {
+         transform: scale(1.05) skewX(10deg);
+    }
+     100% {
+         transform: scale(1) skewX(10deg);
+    }
+}
+
+ @keyframes slideshow-contrast {
+     0% {
+         transform: scale(1.05);
+    }
+     50% {
+         transform: scale(1);
+    }
+     100% {
+         transform: scale(1.05);
+    }
+}
+
+ @keyframes slides-set-1 {
+     0% {
+         opacity: 1;
+         transform: scale(1);
+    }
+     31% {
+         opacity: 1;
+         transform: scale(1);
+    }
+     34% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+     97% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+     100% {
+         opacity: 1;
+         transform: scale(1);
+    }
+}
+
+ @keyframes slides-set-2 {
+     0% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+     31% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+     34% {
+         opacity: 1;
+         transform: scale(1);
+    }
+     64% {
+         opacity: 1;
+         transform: scale(1);
+    }
+     67% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+     100% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+}
+
+ @keyframes slides-set-3 {
+     0% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+     64% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+     67% {
+         opacity: 1;
+         transform: scale(1);
+    }
+     97% {
+         opacity: 1;
+         transform: scale(1);
+    }
+     100% {
+         opacity: 0;
+         transform: scale(1.05);
+    }
+}
+
+/*====card====*/
+
+h1 {
+  font-family: 'raleway', sans-serif;
+  font-weight: 300;
+}
+.row {
+   max-width: 900px;
+   margin: 50px auto 0;
+}
+
+.card {
+   float: left;
+   padding: 0 1.7rem;
+   width: 50%;
+}
+
+.card .menu-content {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+
+.card .menu-content::before, .card .menu-content::after {
+   content: '';
+   display: table;
+}
+
+.card .menu-content::after {
+   clear: both;
+}
+
+.card .menu-content li {
+   display: inline-block;
+}
+
+.card .menu-content a {
+   color: rgb(241, 241, 241);
+}
+
+.card .menu-content span {
+   position: absolute;
+   left: 50%;
+   top: 0;
+   font-size: 10px;
+   font-weight: 700;
+   font-family: 'Open Sans';
+   transform: translate(-50%, 0);
+}
+
+.card .wrapper {
+   background-color: rgb(26, 26, 26);
+   min-height: 600px;
+   position: relative;
+   overflow: hidden;
+   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card .wrapper:hover .data {
+   transform: translateY(0);
+}
+
+.card .data {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   transform: translateY(calc(70px + 1em));
+   transition: transform 0.3s;
+}
+
+.card .data .content {
+   padding: 1em;
+   position: relative;
+   z-index: 1;
+}
+
+.card .author {
+   font-size: 12px;
+}
+
+.card .title {
+   margin-top: 10px;
+}
+
+.card .text {
+   height: 70px;
+   margin: 0;
+}
+
+.card input[type='checkbox'] {
+   display: none;
+}
+
+.card input[type='checkbox']:checked + .menu-content {
+   transform: translateY(-60px);
+}
+
+.example-1 .wrapper {
+   background: url(../img/fh3.jpg) 50% 5% / cover no-repeat;
+}
+
+.example-1 .date {
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-color: #4723D9;
+   color: #fff;
+   padding: 0.8em;
+}
+
+.example-1 .date span {
+   display: block;
+   text-align: center;
+}
+
+.example-1 .date .day {
+   font-weight: 700;
+   font-size: 24px;
+   text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.18);
+}
+
+.example-1 .date .month {
+   text-transform: uppercase;
+}
+
+.example-1 .date .month, .example-1 .date .year {
+   font-size: 12px;
+}
+
+.example-1 .content {
+   background-color: #fff;
+   box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
+}
+
+.example-1 .title a {
+   color: #1a1a1a;
+}
+
+.example-1 .menu-button {
+   position: absolute;
+   z-index: 999;
+   top: 16px;
+   right: 16px;
+   width: 25px;
+   text-align: center;
+   cursor: pointer;
+}
+
+.example-1 .menu-button span {
+   width: 5px;
+   height: 5px;
+   background-color: #202020;
+   color: #1b1b1b;
+   position: relative;
+   display: inline-block;
+   border-radius: 50%;
+}
+
+.example-1 .menu-button span::after, .example-1 .menu-button span::before {
+   content: '';
+   display: block;
+   width: 5px;
+   height: 5px;
+   background-color: currentColor;
+   position: absolute;
+   border-radius: 50%;
+}
+
+.example-1 .menu-button span::before {
+   left: -10px;
+}
+
+.example-1 .menu-button span::after {
+   right: -10px;
+}
+
+.example-1 .menu-content {
+   text-align: center;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   z-index: -1;
+   transition: transform 0.3s;
+   transform: translateY(0);
+}
+
+.example-1 .menu-content li {
+   width: 33.333333%;
+   float: left;
+   background-color: #dd18cd80;
+   height: 60px;
+   position: relative;
+}
+
+.example-1 .menu-content a {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 24px;
+}
+
+.example-1 .menu-content span {
+   top: -10px;
+}
+
+/*.container{
+    margin-top: -120px;
+  }

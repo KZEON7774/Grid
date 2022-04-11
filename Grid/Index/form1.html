@@ -1,0 +1,370 @@
+<html>
+    <head>
+        <title>Login & Signup System</title>
+    </head>
+    <link rel="icon" href="../assets/img/controller.png">
+    <link rel=stylesheet href="../assets/css/Style_Login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <script lang="javascript">
+    
+    function cambiar_login(){
+        document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_login";  
+        document.querySelector('.cont_form_login').style.display = "block";
+        document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+        
+        setTimeout(function(){
+            document.querySelector('.cont_form_login').style.opacity = "1"; },400);  
+            setTimeout(function(){    
+                document.querySelector('.cont_form_sign_up').style.display = "none";
+            },200);  
+        }
+
+    function cambiar_sign_up(at){
+            document.querySelector('.cont_forms').className = "cont_forms cont_forms_active_sign_up";
+            document.querySelector('.cont_form_sign_up').style.display = "block";
+            document.querySelector('.cont_form_login').style.opacity = "0";
+            setTimeout(function(){  
+                document.querySelector('.cont_form_sign_up').style.opacity = "1";
+            },100);  
+            
+            setTimeout(function(){   
+                document.querySelector('.cont_form_login').style.display = "none";
+        },400);
+    }    
+    
+    function ocultar_login_sign_up(){
+        document.querySelector('.cont_forms').className = "cont_forms";  
+        document.querySelector('.cont_form_sign_up').style.opacity = "0";               
+        document.querySelector('.cont_form_login').style.opacity = "0"; 
+        
+        setTimeout(function(){
+            document.querySelector('.cont_form_sign_up').style.display = "none";
+            document.querySelector('.cont_form_login').style.display = "none";
+        },500);  
+    }
+        
+        var username1 = "";
+        var password1 = "";
+        
+        function formvalidation(thisform2){
+        with(thisform2){
+            if(usernameValidation1(usname) == false){
+                return false;
+            }
+            if(passwordValidation1(psword) == false){
+                return false;
+            }
+        }
+        }
+        
+        function usernameValidation1(usname){
+            with(document.form2){
+                if(usname.value == ""){
+                    alert("Username is not entered");
+                    usname.focus();
+                    return false;
+                }
+                else{
+                        var len = usname.value.length;
+                        var i = 0;
+                        var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+                        while (i<len){
+                            if (str.indexOf(usname.value.substr(i,1)) == -1){
+                                alert ("Name may consist of Alphabet Strings. /n Duke Rinzler");
+                                usname.value = "";
+                                return false;
+                            }
+                            i++;
+                        }
+                        return true;
+                    }
+                }
+            }
+        
+        function passwordValidation1(psword){
+            with(document.form2){
+                if(psword.value == ""){
+                    alert("Password is not entered");
+                    psword.focus();
+                    return false;
+                }
+                else{
+                    password1=(psword.value).length;
+                    if((password1 < 8) || (password1 > 10)){
+                        alert("Password should have atleast 8 character length and maximum of 10 characters.");
+                        psword.focus();
+                        return false;
+                    }
+                    else{
+                            password1=(pword.value).length;
+                            if((conpassword < 8) || (password > 10)){
+                                alert("Password should have atleast 8 character length and maximum of 10 characters.");
+                                pword.focus();
+                                return false;
+                            }
+                            else{
+                                var len = pword.value.length;
+                                var i = 0;
+                                var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,1234567890#/-@£$%^&*()!;:><?#~+_-=][}{";
+                                while (i < len){
+                                    if (str.indexOf(pword.value.substr(i,1)) == -1){
+                                        alert ("Invalid Password.");
+                                        pword.value = "";
+                                        return false;
+                                    }
+                                    i++;
+                                }
+                            }
+                        }
+                        return true;
+                    }
+                }
+            }
+        
+        var username = "";
+        var password = "";
+        var conpassword = "";
+        var email = "";
+        
+        function formvalidation(thisform){
+            with(thisform){
+                if(usernameValidation(uname) == false){
+                return false;
+                }
+                if(emailValidation(email) == false){
+                    return false;
+                }
+                if(passwordValidation(pword) == false){
+                    return false;
+                }
+                if(conpasswordValidation(conpword) == false){
+                    return false;
+                }
+            }
+        }
+        
+        function usernameValidation(uname){
+            with(document.form1){
+                if(uname.value == ""){
+                    alert("Username is not Entered.");
+                    uname.focus();
+                    return false;
+                }
+                else{
+                        var len = uname.value.length;
+                        var i = 0;
+                        var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+                        while (i<len){
+                            if (str.indexOf(uname.value.substr(i,1)) == -1){
+                                alert ("Name may consist of Alphabet Strings. \n Example: 'Duke Rinzler'");
+                                uname.value = "";
+                                return false;
+                            }
+                            i++;
+                        }
+                        return true;
+                    }
+                }
+            }
+        
+        function emailValidation(email){
+            with(document.form1){
+                if(email.value == ""){
+                    alert("Email is not Entered.");
+                    email.focus();
+                    return false;
+                }
+                else{
+                    var x, y, z, a, b;
+                    y = 0;
+                    z = 0;
+                    a = 0;
+                    b = 0;
+                    for(x = 0 ; x < email.value.length ; x++){
+                        if(email.value.charAt(x) == '@'){
+                            y++;
+                        }
+                        if(email.value.charAt(x) == '.'){
+                            z++;
+                        }
+                        if(email.value.charAt(x) == ','){
+                            a++;
+                        }
+                        if(email.value.charAt(x) == ' '){
+                            b++;
+                        }
+                    }
+                    if((y < 1) || (z > 2) || (z < 1) || (a > 0) || (b > 0)){
+                        alert("Please verify your email '" +email.value+ "' is not valid \n 'Sample@xxxx.com' \n 'Sample@xx.xxxx.lk' ");
+                        email.value = "";
+                        return false;
+                    }
+                    var n = email.value.substr(0,1);
+                    console.log(n);
+                    var i = 0;
+                    var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                    if(!str.includes(n)){
+                        alert(`Email should start with alphabetic letter. ${n} is not an alphabetic letter`);
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+            
+        function passwordValidation(pword){
+            with(document.form1){
+                if(pword.value == ""){
+                    alert("Password is not entered.");
+                    pword.focus();
+                    return false;
+                }
+                else{
+                    password=(pword.value).length;
+                    if((password < 8) || (password > 10)){
+                        alert("Password should have atleast 8 character length and maximum of 10 characters.");
+                        pword.focus();
+                        return false;
+                        }
+                        else{
+                        var len = pword.value.length;
+                        var i = 0;
+                        var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,1234567890#/-@£$%^&*()!;:><?#~+_-=][}{";
+                        while (i < len){
+                            if (str.indexOf(pword.value.substr(i,1)) == -1){
+                                alert ("Invalid Password.");
+                                pword.value = "";
+                                return false;
+                            }
+                            i++;
+                        }
+                    }
+                    return true;
+                }
+            }
+        }
+     
+            
+        function conpasswordValidation(conpword){
+                with(document.form1){
+                    if(conpword.value == ""){
+                        alert("Please confirm the password.");
+                        conpword.focus();
+                        return false;
+                    }
+                    else{  
+                        if(conpword.value != pword.value){
+                            alert("Incorrect Password.");
+                            conpword.focus();
+                            return false;
+                        }
+                        else{
+                            conpassword=(conpword.value).length;
+                            if((conpassword < 8) || (conpassword > 10)){
+                                alert("Password should have atleast 8 character length and maximum of 10 characters.");
+                                conpword.focus();
+                                return false;
+                            }
+                            else{
+                                var len = conpword.value.length;
+                                var i = 0;
+                                var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,1234567890#/-@£$%^&*()!;:><?#~+_-=][}{";
+                                while (i < len){
+                                    if (str.indexOf(conpword.value.substr(i,1)) == -1){
+                                        alert ("Invalid Password.");
+                                        conpword.value = "";
+                                        return false;
+                                    }
+                                    i++;
+                                }
+                            }
+                        }
+                        return true;
+                    }
+                }
+            }
+
+    </script>
+    <body>
+        <div class="cotn_principal">
+            <div class="cont_centrar">
+                <div class="cont_login">
+                    <div class="cont_info_log_sign_up">
+
+                        <div class="col_md_login">
+                            <div class="cont_ba_opcitiy">
+                                <h2>LOGIN</h2>  
+                                <p>Already Have an Account, Login from Here.</p> 
+                                <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                            </div>
+                        </div>
+                        
+                        <div class="col_md_sign_up">
+                            <div class="cont_ba_opcitiy">
+                                <h2>SIGN UP</h2>
+                                <p>If You are a new comer, Sign up from here.</p>
+                                <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                        <div class="cont_back_info">
+                            <div class="cont_img_back_grey">
+                                <img src="../assets/img/ps5.png" alt=""/>
+                            </div>
+                        </div>
+                    
+                        <div class="cont_forms" >
+                            <div class="cont_img_back_">
+                                <img src="../assets/img/gpad.png" alt=""/>
+                            </div>
+                            
+                            
+                        <form action="../assets/PhP/Login1.php" method="post" name="form2" onSubmit="return formvalidation(this)">
+                            <div class="cont_form_login">
+                                <a href="#" onclick="ocultar_login_sign_up()" >
+                                    <i class="fa fa-angle-left" style="font-size:24px"></i>
+                                </a>
+                                <h2>LOGIN</h2><br>
+                                <input type="text" placeholder="Username" name="usname" />
+                                <input type="password" placeholder="Password" name="psword"/><br><br>
+                                <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                            </div>
+                            </form>
+                            
+                            <form action="../assets/PhP/UserAdd1.php" method="post" name="form1" onSubmit="return formvalidation(this)">
+                                <div class="cont_form_sign_up">
+                                    <a href="#" onclick="ocultar_login_sign_up()">
+                                        <i class="fa fa-angle-left" style="font-size:24px"></i>
+                                    </a>
+                                    <h2>SIGN UP</h2>
+                                    <input type="text" placeholder="Username" name="uname"/>
+                                    <input type="text" placeholder="Email" name="email" />
+                                    <input type="password" placeholder="Password" name="pword"/>
+                                    <input type="password" placeholder="Confirm Password" name="conpword"/>
+                                    <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="cybr-btn" onclick="goBack()">
+            Go Back<span aria-hidden>_</span>
+            <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
+            <span aria-hidden class="cybr-btn__tag">R25</span>
+          </button>
+            
+    </body>
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
+        
+</html>
